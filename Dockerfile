@@ -6,7 +6,7 @@ RUN pacman -Syy --noconfirm --quiet > /dev/null
 
 RUN pacman -S --noconfirm --quiet --needed php-fpm php-gd \
     php-mcrypt php-ldap php-sqlite php-pgsql php-pear \
-    php-xcache >/dev/null 2>/dev/null
+    php-xcache php-intl >/dev/null 2>/dev/null
 
 RUN sed -i 's/;extension=gd.so/extension=gd.so/g' /etc/php/php.ini
 RUN sed -i 's/;extension=iconv.so/extension=iconv.so/g' /etc/php/php.ini
@@ -32,7 +32,6 @@ RUN pacman -Scc --noconfirm
 
 RUN touch /var/log/php-fpm.log
 RUN chown -R http /var/log/php-fpm.log /run/php-fpm
-USER http
 
 EXPOSE 9000
 VOLUME /srv/http
