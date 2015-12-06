@@ -7,6 +7,8 @@ RUN pacman -Syy --noconfirm --quiet > /dev/null
 RUN pacman -S --noconfirm --quiet --needed php-fpm php-gd \
     php-mcrypt php-ldap php-sqlite php-pgsql php-pear \
     php-xcache php-intl >/dev/null 2>/dev/null
+    
+RUN pacman -S --noconfirm --needed php-intl >/dev/null 2>/dev/null
 
 RUN sed -i 's/;extension=gd.so/extension=gd.so/g' /etc/php/php.ini
 RUN sed -i 's/;extension=iconv.so/extension=iconv.so/g' /etc/php/php.ini
