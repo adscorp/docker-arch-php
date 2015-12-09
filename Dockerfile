@@ -1,6 +1,7 @@
 FROM jprjr/arch
 
 MAINTAINER John Regan <john@jrjrtech.com>
+MAINTAINER Zerph 
 
 RUN pacman -Syy --noconfirm --quiet > /dev/null
 
