@@ -24,6 +24,7 @@ RUN sed -i 's/;extension=pdo_sqlite.so/extension=pdo_sqlite.so/g' /etc/php/php.i
 RUN sed -i 's/;extension=intl.so/extension=intl.so/g' /etc/php/php.ini
 RUN sed -i 's/;extension=xcache.so/extension=xcache.so/g' /etc/php/conf.d/xcache.ini
 RUN sed -i 's/;extension=phar.so/extension=phar.so/g' /etc/php/php.ini
+RUN sed -i 's/open_basedir/;open_basedir/g' /etc/php/php.ini
 
 RUN sed -i '/^listen/c \
 listen = 0.0.0.0:9000' /etc/php/php-fpm.conf
